@@ -1,0 +1,26 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cc-design",
+  "metadata": {
+    "description": "Design engineering for Claude Code. Craft, memory, and enforcement for consistent UI."
+  },
+  "owner": {
+    "name": "Zain Merchant",
+    "url": "https://github.com/zm2231"
+  },
+  "plugins": [
+    {
+      "name": "cc-design",
+      "description": "Design engineering for Claude Code. Build interfaces with craft, memory, and enforcement. Extract tokens from live pages, local code, or Stitch projects. Maintains consistent design decisions across sessions.",
+      "version": "2026.3.20.1",
+      "author": {
+        "name": "Zain Merchant",
+        "url": "https://github.com/zm2231"
+      },
+      "source": "./",
+      "category": "design",
+      "homepage": "https://github.com/zm2231/cc-design",
+      "tags": ["design", "design-system", "ui", "craft", "memory", "enforcement", "consistency", "tokens", "stitch"]
+    }
+  ]
+}
