@@ -85,24 +85,23 @@ The `.claude-plugin/plugin.json` registers the commands, skill, and Stitch MCP s
 
 ### Stitch setup (optional)
 
-For semantic color token resolution, add the Stitch MCP server to `.mcp.json` in your project root:
+For semantic color token resolution, run the Stitch MCP setup wizard:
 
-```json
-{
-  "mcpServers": {
-    "stitch": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["@_davideast/stitch-mcp", "proxy"],
-      "env": {
-        "STITCH_USE_SYSTEM_GCLOUD": "1"
-      }
-    }
-  }
-}
+```bash
+npx @_davideast/stitch-mcp init --client claude-code --transport stdio
 ```
 
-You will also need the [Stitch API](https://console.developers.google.com/apis/api/stitch.googleapis.com/overview) enabled on your Google Cloud project and `gcloud` authenticated.
+Select **OAuth** when prompted. It will authenticate with your Google Cloud account, enable the Stitch API on your project, and output the exact command to register the MCP with Claude Code:
+
+```bash
+claude mcp add stitch \
+  -e STITCH_PROJECT_ID=your-project-id \
+  -- npx @_davideast/stitch-mcp proxy
+```
+
+Run that command, then restart Claude Code.
+
+You need `gcloud` installed and authenticated (`gcloud auth login`) before running init.
 
 Without Stitch, the plugin still works for everything except semantic color resolution. You get structural patterns, spacing, typography, and depth; just not the `surface`/`on_surface`/`primary_container` token roles.
 
