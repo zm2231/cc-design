@@ -64,42 +64,31 @@ After the build, it offers to save these patterns to `.cc-design/system.md`. Nex
 
 ### From the Claude Code marketplace
 
-```bash
-claude plugin add zm2231/cc-design
+Add the marketplace, then install:
+
 ```
+/plugin marketplace add zm2231/cc-design
+```
+
+Select cc-design from the `/plugin` menu and restart Claude Code.
 
 ### Manual install
 
 Clone into your Claude Code plugins directory:
 
 ```bash
-# Default plugins directory
 cd ~/.claude/plugins
 git clone https://github.com/zm2231/cc-design.git
 ```
 
-The `.claude-plugin/plugin.json` registers the commands and skill with Claude Code automatically.
+The `.claude-plugin/plugin.json` registers the commands, skill, and Stitch MCP server automatically.
 
-### Stitch MCP setup (optional)
+### Stitch setup (optional)
 
-For semantic color token resolution, add the Stitch MCP server. Create or update `.mcp.json` in your project root:
+The Stitch MCP bundles with the plugin — no manual config needed. You do need two things:
 
-```json
-{
-  "mcpServers": {
-    "stitch": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["@_davideast/stitch-mcp", "proxy"],
-      "env": {
-        "STITCH_USE_SYSTEM_GCLOUD": "1"
-      }
-    }
-  }
-}
-```
-
-You will also need the [Stitch API](https://console.developers.google.com/apis/api/stitch.googleapis.com/overview) enabled on your Google Cloud project and `gcloud` authenticated.
+1. Enable the [Stitch API](https://console.developers.google.com/apis/api/stitch.googleapis.com/overview) on your Google Cloud project
+2. Authenticate: `gcloud auth login`
 
 Without Stitch, the plugin still works for everything except semantic color resolution. You get structural patterns, spacing, typography, and depth; just not the `surface`/`on_surface`/`primary_container` token roles.
 
