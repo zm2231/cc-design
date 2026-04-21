@@ -85,21 +85,11 @@ The `.claude-plugin/plugin.json` registers the commands, skill, and Stitch MCP s
 
 ### Stitch setup (optional)
 
-The Stitch MCP ships with the plugin and activates automatically if two env vars are set.
+The Stitch MCP ships with the plugin. When you enable cc-design, Claude Code will prompt for your Stitch API key — enter it once and Stitch connects automatically.
 
-1. Get an API key at [stitch.withgoogle.com/settings](https://stitch.withgoogle.com/settings) → API Keys → Generate
-2. Add to your shell profile (`.zshrc` / `.bashrc`):
+Get an API key at [stitch.withgoogle.com/settings](https://stitch.withgoogle.com/settings) → API Keys → Generate.
 
-```bash
-export STITCH_API_KEY=your-api-key
-export STITCH_PROJECT_ID=your-gcp-project-id
-```
-
-3. Restart Claude Code
-
-To find your GCP project ID: `gcloud config get-value project`
-
-If the vars aren't set, the plugin loads fine — Stitch just won't connect. Without it you still get structural patterns, spacing, typography, and depth; just not the `surface`/`on_surface`/`primary_container` semantic token roles.
+Skip it and the plugin still works for everything except semantic color resolution — spacing, typography, radius, and structure all extract fine without Stitch.
 
 ## Philosophy
 

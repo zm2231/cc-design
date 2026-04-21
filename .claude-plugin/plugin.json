@@ -1,7 +1,7 @@
 {
   "name": "cc-design",
   "description": "Design engineering for Claude Code. Craft, memory, and enforcement for consistent UI. Extracts from live pages, local code, or Stitch projects.",
-  "version": "2026.4.20.1",
+  "version": "2026.4.20.2",
   "author": {
     "name": "Zain Merchant",
     "url": "https://github.com/zm2231"
@@ -10,14 +10,19 @@
   "repository": "https://github.com/zm2231/cc-design",
   "commands": "./.claude/commands",
   "skills": "./.claude/skills",
+  "userConfig": {
+    "stitch_api_key": {
+      "description": "Stitch API key — get one at stitch.withgoogle.com/settings",
+      "sensitive": true
+    }
+  },
   "mcpServers": {
     "stitch": {
       "type": "stdio",
       "command": "npx",
       "args": ["@_davideast/stitch-mcp", "proxy"],
       "env": {
-        "STITCH_API_KEY": "${STITCH_API_KEY}",
-        "STITCH_PROJECT_ID": "${STITCH_PROJECT_ID}"
+        "STITCH_API_KEY": "${user_config.stitch_api_key}"
       }
     }
   }
