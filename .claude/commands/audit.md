@@ -16,6 +16,8 @@ Check existing code against your design system.
 
 ## What to Check
 
+**Governance:** system.md is the source of truth. Audit findings mean code should change, not system.md. Only update system.md when a pattern decision is being intentionally revised.
+
 **If `.cc-design/system.md` exists:**
 
 1. **Spacing violations**

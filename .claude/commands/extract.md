@@ -22,8 +22,8 @@ Extract design tokens and patterns to bootstrap or update `.cc-design/system.md`
 
 Before extracting, check:
 
-1. Does `.cc-design/system.md` exist? If so, offer to **merge** rather than overwrite — preserving existing decisions.
-2. Does `.cc-design/stitch.json` exist? If so, read it. It contains the locked design system ID. Every Stitch call in this session must use that asset ID — do not create a new design system.
+1. Does `.cc-design/system.md` exist? If so, offer to **merge** rather than overwrite. Merge logic: preserve all existing patterns and token values; add newly found ones; flag conflicts (same token, different value) for the user to resolve — never silently overwrite an existing decision.
+2. Does `.cc-design/stitch.json` exist? If so, read it. Use the locked `designSystemId` for all Stitch calls — do not create a new design system. If Stitch MCP is unavailable but `stitch.json` exists, use cached `namedColors` from the last successful generation as the Phase 2 token source rather than skipping it entirely.
 
 ```json
 // .cc-design/stitch.json shape

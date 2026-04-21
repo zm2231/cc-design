@@ -381,11 +381,21 @@ This compounds — each save makes future work faster and more consistent.
 For more detail on specific topics:
 - `references/principles.md` — Code examples, specific values, dark mode
 - `references/validation.md` — Memory management, when to update system.md
-- `references/critique.md` — Post-build craft critique protocol
+- `references/stitch-setup.md` — Connecting the Stitch MCP for semantic color resolution
 
 # Commands
 
-- `/cc-design:status` — Current system state
-- `/cc-design:audit` — Check code against system
-- `/cc-design:extract` — Extract patterns from code
-- `/cc-design:critique` — Critique your build for craft, then rebuild what defaulted
+**Starting a new project:**
+→ `/cc-design:init` — establish direction and build
+
+**Starting from existing UI:**
+→ `/cc-design:extract` — pull tokens from code, a URL, or a Stitch project → creates system.md
+→ `/cc-design:init` — build more UI using the established system
+
+**Checking state:**
+→ `/cc-design:status` — what's in system.md, what's locked in Stitch
+→ `/cc-design:audit` — find drift between code and system.md
+
+**After building:**
+→ `/cc-design:critique` — catch what defaulted, rebuild what didn't land
+→ `/cc-design:preview` — view Stitch-generated screens without leaving Claude Code
