@@ -16,6 +16,26 @@ Extract design tokens and patterns to bootstrap or update `.cc-design/system.md`
 /cc-design:extract --stitch <project-id>  # Extract from an existing Stitch project
 ```
 
+## Stitch Check (runs once, then never again)
+
+1. If `.cc-design/.stitch-ready` exists → skip
+2. If `$STITCH_API_KEY` is set → write `.cc-design/.stitch-ready`, skip
+3. If neither → show this inline, then proceed with Phase 1 only:
+
+```
+Stitch isn't set up — Phase 2 semantic color resolution won't run.
+
+1. Get an API key → https://stitch.withgoogle.com/settings
+2. Add to ~/.zshrc:
+   export STITCH_API_KEY=your-key
+   export STITCH_PROJECT_ID=$(gcloud config get-value project)
+3. Restart Claude Code — it connects automatically.
+
+Extracting without it now. Run /cc-design:extract again after setup and this won't appear again.
+```
+
+---
+
 ## First: Check for Existing State
 
 Before extracting, check:

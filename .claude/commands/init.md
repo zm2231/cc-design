@@ -23,6 +23,24 @@ Building: [brief description of what's being built]
 
 No mode announcements, no narration. Just that one line, then work.
 
+## Stitch Check (runs once, then never again)
+
+1. If `.cc-design/.stitch-ready` exists → skip this entire section
+2. If `$STITCH_API_KEY` is set → write `.cc-design/.stitch-ready`, skip
+3. If neither → show this once, then continue building without blocking:
+
+```
+Stitch isn't set up — it adds semantic color token resolution to extract.
+
+1. Get an API key → https://stitch.withgoogle.com/settings
+2. Add to ~/.zshrc:
+   export STITCH_API_KEY=your-key
+   export STITCH_PROJECT_ID=$(gcloud config get-value project)
+3. Restart Claude Code — it connects automatically.
+
+Continuing without it. Run /cc-design:init again after setup and this won't appear again.
+```
+
 ---
 
 ## Intent First — Answer Before Building
