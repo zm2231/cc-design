@@ -88,7 +88,9 @@ The Stitch MCP ships with the plugin and activates when `STITCH_API_KEY` is set 
    ```
 3. Restart Claude Code.
 
-Skip it and the plugin still works for everything except semantic color resolution. Spacing, typography, radius, and structural patterns all extract fine without it.
+If you get stuck, just tell Claude: "Help me set up my Stitch API key." It'll walk you through finding the key, adding it to your shell config, and verifying the connection.
+
+Skip it entirely and the plugin still works for everything except semantic color resolution. Spacing, typography, radius, and structural patterns all extract fine without it.
 
 ## Philosophy
 
