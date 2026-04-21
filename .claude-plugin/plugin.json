@@ -9,5 +9,16 @@
   "homepage": "https://github.com/zm2231/cc-design",
   "repository": "https://github.com/zm2231/cc-design",
   "commands": "./.claude/commands",
-  "skills": "./.claude/skills"
+  "skills": "./.claude/skills",
+  "mcpServers": {
+    "stitch": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@_davideast/stitch-mcp", "proxy"],
+      "env": {
+        "STITCH_API_KEY": "${STITCH_API_KEY}",
+        "STITCH_PROJECT_ID": "${STITCH_PROJECT_ID}"
+      }
+    }
+  }
 }

@@ -85,25 +85,21 @@ The `.claude-plugin/plugin.json` registers the commands, skill, and Stitch MCP s
 
 ### Stitch setup (optional)
 
-For semantic color token resolution:
+The Stitch MCP ships with the plugin and activates automatically if two env vars are set.
 
 1. Get an API key at [stitch.withgoogle.com/settings](https://stitch.withgoogle.com/settings) → API Keys → Generate
-2. Register the MCP with Claude Code:
+2. Add to your shell profile (`.zshrc` / `.bashrc`):
 
 ```bash
-claude mcp add stitch -s user \
-  -e STITCH_API_KEY=your-api-key \
-  -e STITCH_PROJECT_ID=your-gcp-project-id \
-  -- npx @_davideast/stitch-mcp proxy
+export STITCH_API_KEY=your-api-key
+export STITCH_PROJECT_ID=your-gcp-project-id
 ```
 
 3. Restart Claude Code
 
 To find your GCP project ID: `gcloud config get-value project`
 
-**Note:** `npx @_davideast/stitch-mcp init` runs a setup wizard that verifies your Google Cloud auth and tests the Stitch API — but it doesn't configure the proxy. The `claude mcp add` command above is the actual setup step. Both `STITCH_API_KEY` and `STITCH_PROJECT_ID` are required.
-
-Without Stitch, the plugin still works for everything except semantic color resolution. You get structural patterns, spacing, typography, and depth; just not the `surface`/`on_surface`/`primary_container` token roles.
+If the vars aren't set, the plugin loads fine — Stitch just won't connect. Without it you still get structural patterns, spacing, typography, and depth; just not the `surface`/`on_surface`/`primary_container` semantic token roles.
 
 ## Philosophy
 
