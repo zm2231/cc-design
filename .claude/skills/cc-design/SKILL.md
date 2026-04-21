@@ -1,6 +1,6 @@
 ---
 name: cc-design
-description: This skill is for interface design — dashboards, admin panels, apps, tools, and interactive products. NOT for marketing design (landing pages, marketing sites, campaigns).
+description: Interface design with craft and consistency — dashboards, apps, tools, landing pages, marketing sites. Any UI that needs a design system, memory, and enforcement.
 ---
 
 # Interface Design
@@ -9,9 +9,9 @@ Build interface design with craft and consistency.
 
 ## Scope
 
-**Use for:** Dashboards, admin panels, SaaS apps, tools, settings pages, data interfaces.
+**Use for:** Dashboards, admin panels, SaaS apps, tools, settings pages, data interfaces, landing pages, marketing sites — any UI where design decisions need to be intentional and consistent.
 
-**Not for:** Landing pages, marketing sites, campaigns. Redirect those to `/frontend-design`.
+**Product UI vs marketing:** The intent questions shift. Product UI is task-first — what must they accomplish? Marketing is persuasion-first — what must they leave believing? The craft principles and system memory apply to both.
 
 ---
 
