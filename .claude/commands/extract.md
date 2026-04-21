@@ -136,7 +136,7 @@ Scan UI files: `tsx, jsx, vue, svelte, css, scss, tokens.json, *.tokens.json, de
 ```
 Stitch MCP not connected. Add it with:
 
-  claude mcp add stitch \
+  claude mcp add stitch -s user \
     -e STITCH_API_KEY=your-key \
     -e STITCH_PROJECT_ID=your-gcp-project-id \
     -- npx @_davideast/stitch-mcp proxy

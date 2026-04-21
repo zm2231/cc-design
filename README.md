@@ -91,7 +91,7 @@ For semantic color token resolution:
 2. Register the MCP with Claude Code:
 
 ```bash
-claude mcp add stitch \
+claude mcp add stitch -s user \
   -e STITCH_API_KEY=your-api-key \
   -e STITCH_PROJECT_ID=your-gcp-project-id \
   -- npx @_davideast/stitch-mcp proxy
