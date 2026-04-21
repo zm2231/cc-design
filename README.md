@@ -85,9 +85,16 @@ The `.claude-plugin/plugin.json` registers the commands, skill, and Stitch MCP s
 
 ### Stitch setup (optional)
 
-The Stitch MCP ships with the plugin. When you enable cc-design, Claude Code will prompt for your Stitch API key — enter it once and Stitch connects automatically.
+The Stitch MCP ships with the plugin and activates automatically when `STITCH_API_KEY` is set in your shell.
 
-Get an API key at [stitch.withgoogle.com/settings](https://stitch.withgoogle.com/settings) → API Keys → Generate.
+1. Get an API key at [stitch.withgoogle.com/settings](https://stitch.withgoogle.com/settings) → API Keys → Generate
+2. Add to `~/.zshrc` (or `~/.bashrc`):
+
+```bash
+export STITCH_API_KEY=your-api-key
+```
+
+3. Restart Claude Code — Stitch connects automatically.
 
 Skip it and the plugin still works for everything except semantic color resolution — spacing, typography, radius, and structure all extract fine without Stitch.
 

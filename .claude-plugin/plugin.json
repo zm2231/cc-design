@@ -10,21 +10,13 @@
   "repository": "https://github.com/zm2231/cc-design",
   "commands": "./.claude/commands",
   "skills": "./.claude/skills",
-  "userConfig": {
-    "stitch_api_key": {
-      "type": "string",
-      "title": "Stitch API Key",
-      "description": "Get one at stitch.withgoogle.com/settings → API Keys → Generate",
-      "sensitive": true
-    }
-  },
   "mcpServers": {
     "stitch": {
       "type": "stdio",
       "command": "npx",
       "args": ["@_davideast/stitch-mcp", "proxy"],
       "env": {
-        "STITCH_API_KEY": "${user_config.stitch_api_key}"
+        "STITCH_API_KEY": "${STITCH_API_KEY}"
       }
     }
   }
