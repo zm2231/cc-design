@@ -1,7 +1,7 @@
 {
   "name": "cc-design",
   "description": "Design engineering for Claude Code. Craft, memory, and enforcement for consistent UI. Extracts from live pages, local code, or Stitch projects.",
-  "version": "2026.3.20.1",
+  "version": "2026.4.20.1",
   "author": {
     "name": "Zain Merchant",
     "url": "https://github.com/zm2231"
