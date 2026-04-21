@@ -43,11 +43,4 @@ To iterate on a screen: /cc-design:extract --stitch <project-id>
 
 ## If Stitch MCP is not connected
 
-```
-Stitch MCP not connected — can't fetch screen previews.
-
-Screens recorded in .cc-design/stitch.json:
-  • [screen descriptions from stitch.json]
-
-Connect Stitch and run /cc-design:preview again.
-```
+Tell the user Stitch isn't connected, list any screens recorded in `.cc-design/stitch.json`, and refer them to `references/stitch-setup.md`.
