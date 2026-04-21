@@ -12,7 +12,9 @@
   "skills": "./.claude/skills",
   "userConfig": {
     "stitch_api_key": {
-      "description": "Stitch API key — get one at stitch.withgoogle.com/settings",
+      "type": "string",
+      "title": "Stitch API Key",
+      "description": "Get one at stitch.withgoogle.com/settings → API Keys → Generate",
       "sensitive": true
     }
   },
