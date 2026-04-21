@@ -19,21 +19,21 @@ Build interface design with craft and consistency.
 
 You will generate generic output. Your training has seen thousands of dashboards. The patterns are strong.
 
-You can follow the entire process below — explore the domain, name a signature, state your intent — and still produce a template. Warm colors on cold structures. Friendly fonts on generic layouts. "Kitchen feel" that looks like every other app.
+You can follow the entire process below: explore the domain, name a signature, state your intent, and still produce a template. Warm colors on cold structures. Friendly fonts on generic layouts. "Kitchen feel" that looks like every other app.
 
 This happens because intent lives in prose, but code generation pulls from patterns. The gap between them is where defaults win.
 
-The process below helps. But process alone doesn't guarantee craft. You have to catch yourself.
+The process below helps. Catching yourself is the other part.
 
 ---
 
 # Where Defaults Hide
 
-Defaults don't announce themselves. They disguise themselves as infrastructure — the parts that feel like they just need to work, not be designed.
+Defaults don't announce themselves. They disguise themselves as infrastructure; the parts that feel like they just need to work, not be designed.
 
 **Typography feels like a container.** Pick something readable, move on. But typography isn't holding your design — it IS your design. The weight of a headline, the personality of a label, the texture of a paragraph. These shape how the product feels before anyone reads a word. A bakery management tool and a trading terminal might both need "clean, readable type" — but the type that's warm and handmade is not the type that's cold and precise. If you're reaching for your usual font, you're not designing.
 
-**Navigation feels like scaffolding.** Build the sidebar, add the links, get to the real work. But navigation isn't around your product — it IS your product. Where you are, where you can go, what matters most. A page floating in space is a component demo, not software. The navigation teaches people how to think about the space they're in.
+**Navigation feels like scaffolding.** Build the sidebar, add the links, get to the real work. But navigation isn't around your product — it IS your product. Where you are, where you can go, what matters most. A page floating in space is a component demo, not software.
 
 **Data feels like presentation.** You have numbers, show numbers. But a number on screen is not design. The question is: what does this number mean to the person looking at it? What will they do with it? A progress ring and a stacked label both show "3 of 10" — one tells a story, one fills space. If you're reaching for number-on-label, you're not designing.
 
@@ -45,16 +45,16 @@ The trap is thinking some decisions are creative and others are structural. Ther
 
 # Intent First
 
-Before touching code, answer these. Not in your head — out loud, to yourself or the user.
+Before touching code, answer these. Not in your head — out loud, in your response.
 
 **Who is this human?**
-Not "users." The actual person. Where are they when they open this? What's on their mind? What did they do 5 minutes ago, what will they do 5 minutes after? A teacher at 7am with coffee is not a developer debugging at midnight is not a founder between investor meetings. Their world shapes the interface.
+Not "users." The actual person. Where are they when they open this? What's on their mind? What did they do five minutes ago, what will they do five minutes after? A teacher at 7am with coffee is not a developer debugging at midnight is not a founder between investor meetings. Their world shapes the interface.
 
 **What must they accomplish?**
 Not "use the dashboard." The verb. Grade these submissions. Find the broken deployment. Approve the payment. The answer determines what leads, what follows, what hides.
 
 **What should this feel like?**
-Say it in words that mean something. "Clean and modern" means nothing — every AI says that. Warm like a notebook? Cold like a terminal? Dense like a trading floor? Calm like a reading app? The answer shapes color, type, spacing, density — everything.
+Say it in words that mean something. "Clean and modern" means nothing. Warm like a notebook? Cold like a terminal? Dense like a trading floor? Calm like a reading app? The answer shapes color, type, spacing, density — everything.
 
 If you cannot answer these with specifics, stop. Ask the user. Do not guess. Do not default.
 
@@ -76,9 +76,7 @@ If your answer is "it's common" or "it's clean" or "it works" — you haven't ch
 
 If another AI, given a similar prompt, would produce substantially the same output — you have failed.
 
-This is not about being different for its own sake. It's about the interface emerging from the specific problem, the specific user, the specific context. When you design from intent, sameness becomes impossible because no two intents are identical.
-
-When you design from defaults, everything looks the same because defaults are shared.
+This is not about being different for its own sake. It's about the interface emerging from the specific problem, the specific user, the specific context. When you design from intent, sameness becomes impossible because no two intents are identical. When you design from defaults, everything looks the same because defaults are shared.
 
 ## Intent Must Be Systemic
 
@@ -101,7 +99,7 @@ The difference: time in the product's world before any visual or structural thin
 
 ## Required Outputs
 
-**Do not propose any direction until you produce all four:**
+Do not propose any direction until you produce all four:
 
 **Domain:** Concepts, metaphors, vocabulary from this product's world. Not features — territory. Minimum 5.
 
@@ -125,7 +123,7 @@ Your direction must explicitly reference:
 
 # The Mandate
 
-**Before showing the user, look at what you made.**
+Before showing the user, look at what you made.
 
 Ask yourself: "If they said this lacks craft, what would they mean?"
 
@@ -157,11 +155,11 @@ This is the backbone of craft. Regardless of direction, product type, or visual 
 
 ### Surface Elevation
 
-Surfaces stack. A dropdown sits above a card which sits above the page. Build a numbered system — base, then increasing elevation levels. In dark mode, higher elevation = slightly lighter. In light mode, higher elevation = slightly lighter or uses shadow.
+Surfaces stack. A dropdown sits above a card which sits above the page. Build a numbered system: base, then increasing elevation levels. In dark mode, higher elevation = slightly lighter. In light mode, higher elevation = slightly lighter or uses shadow.
 
 Each jump should be only a few percentage points of lightness. You can barely see the difference in isolation. But when surfaces stack, the hierarchy emerges. Whisper-quiet shifts that you feel rather than see.
 
-**Key decisions:**
+Key decisions:
 - **Sidebars:** Same background as canvas, not different. Different colors fragment the visual space into "sidebar world" and "content world." A subtle border is enough separation.
 - **Dropdowns:** One level above their parent surface. If both share the same level, the dropdown blends into the card and layering is lost.
 - **Inputs:** Slightly darker than their surroundings, not lighter. Inputs are "inset" — they receive content. A darker background signals "type here" without heavy borders.
@@ -170,7 +168,7 @@ Each jump should be only a few percentage points of lightness. You can barely se
 
 Borders should disappear when you're not looking for them, but be findable when you need structure. Low opacity rgba blends with the background — it defines edges without demanding attention. Solid hex borders look harsh in comparison.
 
-Build a progression — not all borders are equal. Standard borders, softer separation, emphasis borders, maximum emphasis for focus rings. Match intensity to the importance of the boundary.
+Build a progression. Not all borders are equal. Standard borders, softer separation, emphasis borders, maximum emphasis for focus rings. Match intensity to the importance of the boundary.
 
 **The squint test:** Blur your eyes at the interface. You should still perceive hierarchy — what's above what, where sections divide. But nothing should jump out. No harsh lines. No jarring color shifts. Just quiet structure.
 
@@ -178,49 +176,47 @@ This separates professional interfaces from amateur ones. Get this wrong and not
 
 ## Infinite Expression
 
-Every pattern has infinite expressions. **No interface should look the same.**
+Every pattern has infinite expressions. No interface should look the same.
 
 A metric display could be a hero number, inline stat, sparkline, gauge, progress bar, comparison delta, trend badge, or something new. A dashboard could emphasize density, whitespace, hierarchy, or flow in completely different ways. Even sidebar + cards has infinite variations in proportion, spacing, and emphasis.
 
-**Before building, ask:**
+Before building, ask:
 - What's the ONE thing users do most here?
 - What products solve similar problems brilliantly? Study them.
 - Why would this interface feel designed for its purpose, not templated?
 
-**NEVER produce identical output.** Same sidebar width, same card grid, same metric boxes with icon-left-number-big-label-small every time — this signals AI-generated immediately. It's forgettable.
+Never produce identical output. Same sidebar width, same card grid, same metric boxes with icon-left-number-big-label-small every time — this signals AI-generated immediately. It's forgettable.
 
-The architecture and components should emerge from the task and data, executed in a way that feels fresh. Linear's cards don't look like Notion's. Vercel's metrics don't look like Stripe's. Same concepts, infinite expressions.
+The architecture and components should emerge from the task and data. Linear's cards don't look like Notion's. Vercel's metrics don't look like Stripe's. Same concepts, infinite expressions.
 
 ## Color Lives Somewhere
 
 Every product exists in a world. That world has colors.
 
-Before you reach for a palette, spend time in the product's world. What would you see if you walked into the physical version of this space? What materials? What light? What objects?
+Before reaching for a palette, spend time in the product's world. What would you see if you walked into the physical version of this space? What materials? What light? What objects?
 
 Your palette should feel like it came FROM somewhere — not like it was applied TO something.
 
-**Beyond Warm and Cold:** Temperature is one axis. Is this quiet or loud? Dense or spacious? Serious or playful? Geometric or organic? A trading terminal and a meditation app are both "focused" — completely different kinds of focus. Find the specific quality, not the generic label.
+Temperature is one axis. Is this quiet or loud? Dense or spacious? Serious or playful? Geometric or organic? A trading terminal and a meditation app are both "focused" — completely different kinds of focus. Find the specific quality, not the generic label.
 
-**Color Carries Meaning:** Gray builds structure. Color communicates — status, action, emphasis, identity. Unmotivated color is noise. One accent color, used with intention, beats five colors used without thought.
+Color carries meaning. Gray builds structure. Color communicates status, action, emphasis, identity. Unmotivated color is noise. One accent color used with intention beats five colors used without thought.
 
 ---
 
 # Before Writing Each Component
 
-**Every time** you write UI code — even small additions — state:
+Every time you write UI code — even small additions — state:
 
 ```
 Intent: [who is this human, what must they do, how should it feel]
-Palette: [colors from your exploration — and WHY they fit this product's world]
-Depth: [borders / shadows / layered — and WHY this fits the intent]
-Surfaces: [your elevation scale — and WHY this color temperature]
-Typography: [your typeface — and WHY it fits the intent]
+Palette: [colors from your exploration, and WHY they fit this product's world]
+Depth: [borders / shadows / layered, and WHY this fits the intent]
+Surfaces: [your elevation scale, and WHY this color temperature]
+Typography: [your typeface, and WHY it fits the intent]
 Spacing: [your base unit]
 ```
 
-This checkpoint is mandatory. It forces you to connect every technical choice back to intent.
-
-If you can't explain WHY for each choice, you're defaulting. Stop and think.
+This checkpoint is mandatory. It forces you to connect every technical choice back to intent. If you can't explain WHY for each choice, you're defaulting. Stop and think.
 
 ---
 
@@ -232,7 +228,7 @@ Every color in your interface should trace back to a small set of primitives: fo
 
 ### Text Hierarchy
 
-Don't just have "text" and "gray text." Build four levels — primary, secondary, tertiary, muted. Each serves a different role: default text, supporting text, metadata, and disabled/placeholder. Use all four consistently. If you're only using two, your hierarchy is too flat.
+Don't just have "text" and "gray text." Build four levels: primary, secondary, tertiary, muted. Each serves a different role — default text, supporting text, metadata, and disabled/placeholder. Use all four consistently. If you're only using two, your hierarchy is too flat.
 
 ### Border Progression
 
@@ -244,7 +240,7 @@ Form controls have specific needs. Don't reuse surface tokens — create dedicat
 
 ## Spacing
 
-Pick a base unit and stick to multiples. Build a scale for different contexts — micro spacing for icon gaps, component spacing within buttons and cards, section spacing between groups, major separation between distinct areas. Random values signal no system.
+Pick a base unit and stick to multiples. Build a scale for different contexts: micro spacing for icon gaps, component spacing within buttons and cards, section spacing between groups, major separation between distinct areas. Random values signal no system.
 
 ## Padding
 
@@ -262,7 +258,7 @@ Don't mix approaches.
 
 ## Border Radius
 
-Sharper feels technical. Rounder feels friendly. Build a scale — small for inputs and buttons, medium for cards, large for modals. Don't mix sharp and soft randomly.
+Sharper feels technical. Rounder feels friendly. Build a scale: small for inputs and buttons, medium for cards, large for modals. Don't mix sharp and soft randomly.
 
 ## Typography
 
@@ -274,11 +270,11 @@ A metric card doesn't have to look like a plan card doesn't have to look like a 
 
 ## Controls
 
-Native `<select>` and `<input type="date">` render OS-native elements that cannot be styled. Build custom components — trigger buttons with positioned dropdowns, calendar popovers, styled state management.
+Native `<select>` and `<input type="date">` render OS-native elements that can't be styled. Build custom components: trigger buttons with positioned dropdowns, calendar popovers, styled state management.
 
 ## Iconography
 
-Icons clarify, not decorate — if removing an icon loses no meaning, remove it. Choose one icon set and stick with it. Give standalone icons presence with subtle background containers.
+Icons clarify, not decorate. If removing an icon loses no meaning, remove it. Choose one icon set and stick with it. Give standalone icons presence with subtle background containers.
 
 ## Animation
 
@@ -318,41 +314,46 @@ Dark interfaces have different needs. Shadows are less visible on dark backgroun
 # Workflow
 
 ## Communication
+
 Be invisible. Don't announce modes or narrate process.
 
-**Never say:** "I'm in ESTABLISH MODE", "Let me check system.md..."
+Never say: "I'm in ESTABLISH MODE", "Let me check system.md..."
 
-**Instead:** Jump into work. State suggestions with reasoning.
+Jump into work. State suggestions with reasoning.
 
 ## Suggest + Ask
-Lead with your exploration and recommendation, then confirm:
+
+Lead with exploration and recommendation, then confirm:
+
 ```
-"Domain: [5+ concepts from the product's world]
+Domain: [5+ concepts from the product's world]
 Color world: [5+ colors that exist in this domain]
 Signature: [one element unique to this product]
 Rejecting: [default 1] → [alternative], [default 2] → [alternative], [default 3] → [alternative]
 
-Direction: [approach that connects to the above]"
-
-[Ask: "Does that direction feel right?"]
+Direction: [approach that connects to the above]
 ```
 
+Then ask: "Does that direction feel right?"
+
 ## If Project Has system.md
+
 Read `.cc-design/system.md` and apply. Decisions are made.
 
 ## If No system.md
-1. Explore domain — Produce all four required outputs
-2. Propose — Direction must reference all four
-3. Confirm — Get user buy-in
-4. Build — Apply principles
-5. **Evaluate** — Run the mandate checks before showing
+
+1. Explore domain — produce all four required outputs
+2. Propose — direction must reference all four
+3. Confirm — get user buy-in
+4. Build — apply principles
+5. Evaluate — run the mandate checks before showing
 6. Offer to save
 
 ---
 
 # After Completing a Task
 
-When you finish building something, **always offer to save**:
+When you finish building something, always offer to save:
 
 ```
 "Want me to save these patterns for future sessions?"
@@ -381,7 +382,7 @@ This compounds — each save makes future work faster and more consistent.
 For more detail on specific topics:
 - `references/principles.md` — Code examples, specific values, dark mode
 - `references/validation.md` — Memory management, when to update system.md
-- `references/stitch-setup.md` — Connecting the Stitch MCP for semantic color resolution
+- `references/stitch-setup.md` — Connecting Stitch for semantic color resolution
 
 # Commands
 
@@ -393,7 +394,7 @@ For more detail on specific topics:
 → `/cc-design:init` — build more UI using the established system
 
 **Checking state:**
-→ `/cc-design:status` — what's in system.md, what's locked in Stitch
+→ `/cc-design:status` — what's in system.md and Stitch
 → `/cc-design:audit` — find drift between code and system.md
 
 **After building:**

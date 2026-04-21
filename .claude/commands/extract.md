@@ -169,7 +169,7 @@ Phase 2 (Stitch resolution):
   on_surface: #1e1c18
   outline: #c8c4bc
   error: #ba1a1a
-  Design system: Cadence AI (assets/16067147807800514904) — saved to stitch.json
+  Design system: Acme Dashboard (assets/12345678901234567890) — saved to stitch.json
 
 Stitch font mappings (actual → Stitch):
   Instrument Serif → Source Serif 4

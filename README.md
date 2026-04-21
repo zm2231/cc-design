@@ -1,121 +1,115 @@
 # cc-design
 
-AI defaults to generic. Ask it to build a dashboard and it gives you the same indigo gradient card layout every time. The code works, but the craft is missing. That is the problem cc-design solves.
+Ask an AI to build a dashboard. You get the same indigo gradient card layout it gives everyone else. The code works. The craft doesn't exist.
 
-It is a Claude Code plugin that enforces intent-first design thinking before any code gets written. The AI has to answer who the human is, what they are trying to do, and how it should feel before it touches a single line. Then it captures those decisions in `.cc-design/system.md` so future work compounds instead of resetting.
+This isn't about the model being bad at design. It's that without forcing intent up front, the AI pulls from the center of distribution. Everything it produces reads as AI-built because it IS the average of a thousand similar UIs. Same sidebar width. Same metric card with icon-left, number-big, label-small. Same color temperature that fits everything and means nothing.
 
-You get dashboards, admin panels, and tools that feel like they were designed for the specific problem, not copied from a template.
+cc-design is a Claude Code plugin that breaks that pattern by making the AI justify every decision before it touches code.
+
+Before anything gets built, three questions have to be answered: who is this human, what do they need to accomplish, and how should this feel? Every visual choice gets explained against those answers. Not against what's common. Not against what "looks clean." Against intent.
+
+Then the decisions get saved to `.cc-design/system.md`. Future sessions load that file and build on what you established instead of starting over. The design system compounds.
 
 ## What it does
 
-**Intent enforcement.** The AI cannot default to generic patterns. Every design choice must be justified with intent, not "this is common."
+**Intent enforcement.** The AI can't default. Every design choice requires a WHY that connects back to the specific user and task.
 
-**Design memory.** Patterns live in `.cc-design/system.md` so future work builds on what you have already established.
+**Design memory.** Patterns live in `.cc-design/system.md`. Spacing base unit, depth strategy, color palette, component patterns; future work inherits all of it.
 
-**Consistency checks.** Run `/cc-design:audit` to find spacing, depth, color, and pattern violations across your codebase.
+**Consistency checks.** Run `/cc-design:audit` to catch spacing violations, depth inconsistencies, colors outside the palette, and pattern drift across your codebase.
 
-**Pattern extraction.** Pull design tokens from existing code, live URLs, or Stitch projects.
+**Pattern extraction.** Pull design tokens from existing code, live URLs, or Stitch projects with `/cc-design:extract`.
+
+**Screen preview.** If Stitch is connected, `/cc-design:preview` downloads generated screens and opens them locally.
 
 ## Stitch integration
 
-Google's Stitch is a design system tool that can generate UI from text descriptions. When you connect it via the MCP server, you get something most tools do not: semantically resolved color tokens.
+Stitch is Google's design system tool. It generates UI from text and returns semantically resolved color tokens.
 
-Here is why that matters. When you scan a live URL for design tokens, you get palette colors; hex values without semantic meaning. Stitch resolves these into roles like `surface`, `surface_container`, `on_surface`; the actual design intent, not just the values.
+Here's why that matters. When you scan a live URL for design tokens, you get palette colors; hex values with no semantic meaning. You don't know if `#1e1c18` is your primary text or an accent or a background. Stitch resolves these into roles: `surface`, `surface_container`, `on_surface`, `primary_container`. The actual design intent, not just the values.
 
-The extraction flow runs in two phases:
+The extraction flow runs in two phases. First, a static scan pulls CSS variables, colors, fonts, spacing, and Tailwind classes from the URL. Second, those findings become a brief passed to `generate_screen_from_text`; the semantic tokens come back from the response.
 
-1. **Static scan:** Fetch the URL, extract CSS variables, colors, fonts, spacing, Tailwind classes
-2. **Stitch resolution:** Use those findings as a brief, call `generate_screen_from_text`, extract the semantic tokens from the response
-
-You end up with a complete `system.md` that has both structural patterns and fully resolved semantic colors. Without Stitch you still get the structural data, but semantic roles stay unresolved.
+You end up with a `system.md` that has both structural patterns and fully resolved semantic colors. Without Stitch you still get everything structural. Semantic roles just stay unresolved.
 
 ## Commands
 
 | Command | What it does |
 |---------|-------------|
-| `/cc-design:init` | Main design workflow. Checks for existing system state, asks intent questions, builds with craft. |
-| `/cc-design:extract` | Extract design patterns from code, a URL, or a Stitch project. |
-| `/cc-design:status` | Show your current design system state from `.cc-design/system.md`. |
+| `/cc-design:init` | Main design workflow. Explores the domain, forces intent questions, builds with craft. |
+| `/cc-design:extract` | Pull design tokens from code, a URL, or a Stitch project. |
+| `/cc-design:status` | Show current design system state from `.cc-design/system.md`. |
 | `/cc-design:audit` | Check code against your design system for violations. |
-| `/cc-design:critique` | Critique your build for craft, then rebuild what defaulted. |
+| `/cc-design:critique` | Post-build craft critique. Catch what defaulted, rebuild what didn't land. |
+| `/cc-design:preview` | Download Stitch screens and open locally. Requires Stitch connected. |
 
 ## How it works
 
-The core idea is that every choice must be a choice. Before generating any UI, the AI has to articulate:
-
-1. Who is this human?
-2. What must they accomplish?
-3. How should this feel?
-
-Then it declares intent for the design:
+Every choice must be a choice. Before generating any UI, the AI declares:
 
 ```
-Intent: [who, what they need to do, how it should feel]
-Palette: [foundation + accent, and WHY these colors fit this product's world]
+Intent: [who this human is, what they must do, how it should feel]
+Palette: [colors, and WHY they fit this product's world]
 Depth: [borders / subtle shadows / layered, and WHY]
 Surfaces: [elevation scale, and WHY this temperature]
-Typography: [typeface choice, and WHY it fits the intent]
+Typography: [typeface, and WHY it fits the intent]
 Spacing: [base unit]
 ```
 
-After the build, it offers to save these patterns to `.cc-design/system.md`. Next time, those patterns load automatically. Your design system compounds instead of resetting.
+After the build, patterns get saved to `.cc-design/system.md`. Next session loads that file automatically. Your design system compounds instead of resetting every time you open a new conversation.
 
 ## Installation
 
 ### From the Claude Code marketplace
 
-Add the marketplace, then install:
-
 ```
 /plugin marketplace add zm2231/cc-design
 ```
 
-Select cc-design from the `/plugin` menu and restart Claude Code.
+Select cc-design from `/plugin` and restart Claude Code.
 
-### Manual install
-
-Clone into your Claude Code plugins directory:
+### Manual
 
 ```bash
 cd ~/.claude/plugins
 git clone https://github.com/zm2231/cc-design.git
 ```
 
-The `.claude-plugin/plugin.json` registers the commands, skill, and Stitch MCP server automatically.
+The `plugin.json` registers commands, the skill, and the Stitch MCP server automatically.
 
-### Stitch setup (optional)
+### Stitch (optional)
 
-The Stitch MCP ships with the plugin and activates automatically when `STITCH_API_KEY` is set in your shell.
+The Stitch MCP ships with the plugin and activates when `STITCH_API_KEY` is set in your shell.
 
-1. Get an API key at [stitch.withgoogle.com/settings](https://stitch.withgoogle.com/settings) → API Keys → Generate
+1. Get a key at [stitch.withgoogle.com/settings](https://stitch.withgoogle.com/settings) → API Keys → Generate
 2. Add to `~/.zshrc` (or `~/.bashrc`):
+   ```bash
+   export STITCH_API_KEY=your-api-key
+   ```
+3. Restart Claude Code.
 
-```bash
-export STITCH_API_KEY=your-api-key
-```
-
-3. Restart Claude Code — Stitch connects automatically.
-
-Skip it and the plugin still works for everything except semantic color resolution — spacing, typography, radius, and structure all extract fine without Stitch.
+Skip it and the plugin still works for everything except semantic color resolution. Spacing, typography, radius, and structural patterns all extract fine without it.
 
 ## Philosophy
 
-The plugin is built on a few rules:
+A few rules everything is built on.
 
-- **Intent first:** You cannot design without knowing who it is for and what they need to do.
-- **Every choice must be a choice:** If you cannot explain WHY, you have not designed.
-- **Sameness is failure:** Generic output is rejected. The interface must emerge from THIS user, THIS problem, THIS intent.
-- **Subtle layering:** Surfaces stack with barely visible differences. Borders disappear when you are not looking for them.
-- **Memory compounds:** Capture decisions so future work builds on what you have already established.
+**Intent first.** You can't design without knowing who it's for and what they need to do.
 
-The result is UI that feels like it was built for the specific problem, not generated from a template.
+**Every choice must be a choice.** If you can't explain WHY, you haven't designed. You've defaulted.
+
+**Sameness is failure.** If another AI given the same prompt would produce the same output; you failed. The interface has to emerge from THIS user, THIS problem, THIS context.
+
+**Subtle layering.** Surfaces stack with barely visible differences. Borders disappear when you're not looking for them. Craft whispers.
+
+**Memory compounds.** Capture decisions so future work builds on what's already established instead of resetting.
 
 ## Project structure
 
 ```
 .claude-plugin/
-  plugin.json           # Plugin manifest for Claude Code
-  marketplace.json      # Marketplace listing metadata
+  plugin.json           # Plugin manifest
+  marketplace.json      # Marketplace listing
 .claude/
   commands/
     init.md             # /cc-design:init
@@ -123,19 +117,19 @@ The result is UI that feels like it was built for the specific problem, not gene
     status.md           # /cc-design:status
     audit.md            # /cc-design:audit
     critique.md         # /cc-design:critique
+    preview.md          # /cc-design:preview
   skills/
     cc-design/
       SKILL.md          # Core skill: principles, craft knowledge, checks
       references/
         principles.md   # Code examples, specific values, dark mode
         validation.md   # Memory management, when to update system.md
-        critique.md     # Post-build craft critique protocol
+        stitch-setup.md # Stitch connection instructions
         example.md      # Example system.md output
 reference/
   system-template.md    # Template for .cc-design/system.md
   examples/
-    system-cadence.md   # Example: cadence design direction
-    system-precision.md # Example: precision design direction
-    system-warmth.md    # Example: warmth design direction
-.mcp.json               # Stitch MCP server configuration
+    system-dark-analytics.md
+    system-precision.md
+    system-warmth.md
 ```
